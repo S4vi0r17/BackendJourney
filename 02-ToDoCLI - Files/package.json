@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js",
-    "dev-file": "nodemon app-files.js",
-    "start-file": "node app-files.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Benites Eder",

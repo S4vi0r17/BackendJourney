@@ -4,4 +4,4 @@ Backend development using Node.js and Express.js, with future plans to explore J
 
 ## 01-ToDoCLI
 
-![ToDoCLI](./img/1.png)
+<!-- ![ToDoCLI](./img/1.png) -->
