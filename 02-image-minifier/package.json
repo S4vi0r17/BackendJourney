@@ -11,6 +11,7 @@
   "author": "Eder Benites",
   "license": "ISC",
   "devDependencies": {
+    "@types/sharp": "^0.32.0",
     "fs-extra": "^11.1.1",
     "imagemin": "^8.0.1",
     "imagemin-avif": "^0.1.4",
