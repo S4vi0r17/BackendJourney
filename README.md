@@ -9,3 +9,7 @@ Backend development using Node.js and Express.js, with future plans to explore J
 ## 02-ImageMinifier
 
 ![ImageMinifier](./img/2.png)
+
+## 03-WeatherApp
+
+![WeatherApp](./img/3.png)
