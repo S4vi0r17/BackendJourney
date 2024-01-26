@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 #{title} 
+    ul
+        if tasks.length
+            each task in tasks
+                li
+                    p #{task.name}
+                    p #{task.description}
+                    if task.done
+                        p Completed
+                    else
+                        p Pending
+        else
+            li No tasks
