@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    main.container
+        h1.text-center= title
+        ul.task-list
+            if tasks.length === 0
+                li
+                    b.text-center You have no tasks to do 😃👌🏻
+            else
+                each task in tasks
+                    li(class=`${task.done ? "completed": ""}`)
+                        a(href=`/edit/${task.id}`) #{task.name}
+                        div.group
+                            if task.done
+                                a.uncomplete-button(href=`/uncomplete/${task.id}`) Unmark
+                            else
+                                a.complete-button(href=`/complete/${task.id}`) Complete
+                            a.delete-button(href=`/delete/${task.id}`) Delete
+        div.text-right
+            a.add-button(href="/add") Add Task

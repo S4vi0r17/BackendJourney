@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+    main.container 
+        h1= title 
+        form(action="/add" method="POST")
+            label(for="name") Task Name
+            input(type="text" id="name" name="name", required)
+            button.add-button(type="submit") Add Task
+        a.back-button(href="/") ↩️🏠 Back to home
