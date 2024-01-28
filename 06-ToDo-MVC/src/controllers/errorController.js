@@ -1,7 +1,7 @@
 const error404 = (req, res) => {
     res.render('error', {
-        title: 404,
-        message: 'Ruta no encontrada'
+        title: 'Error 404 Not Found',
+        message: 'El recurso que estás buscando no existe.'
     })
 }
 
