@@ -25,7 +25,8 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.get('/tasks', taskController.getAllTasks);
 app.post('/tasks', taskController.addTask);
-app.put('tasks/:id', taskController.editTask);
+app.get('/tasks/:id', taskController.getTask);
+app.put('/tasks/:id', taskController.editTask);
 app.put('/tasks/complete/:id', taskController.completeTask);
 app.put('/tasks/uncomplete/:id', taskController.uncompleteTask);
 app.delete('/tasks/:id', taskController.deleteTask);
@@ -34,5 +35,5 @@ app.use(errorController.error404)
 
 
 app.listen(port, () => {
-    console.log(`API listening at http://localhost/tasks:${port}`);
+    console.log(`API listening at http://localhost:${port}/tasks`);
 });
