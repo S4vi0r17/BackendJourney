@@ -38,7 +38,6 @@ app.get('/delete/:id', taskController.deleteTask);
 
 app.use(errorController.error404)
 
-
 app.listen(port, () => {
     console.log(`Server on port http://localhost:${port}`);
 });
