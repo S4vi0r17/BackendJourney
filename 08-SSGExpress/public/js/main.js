@@ -1,0 +1,1 @@
+console.log('SSG is running...');

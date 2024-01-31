@@ -41,11 +41,12 @@ for (let file of files) {
                     let { body, attributes } = fm(data);
                     // let md = new MarkdownIt();
                     // let html = md.render(body);
-                    let html = new MarkdownIt().render(body);
-                    res.render('layout-md', { ...attributes, html });
+                    let contentHTML = new MarkdownIt().render(body);
+                    res.render('layout-md', { ...attributes, contentHTML });
                 }
 
                 if (ext === '.html') {
+                    res.sendFile(filePath);
                 }
 
                 if (ext === '.pug') {
