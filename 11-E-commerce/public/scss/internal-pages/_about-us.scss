@@ -1,0 +1,23 @@
+@use "../general/mixins" as m;
+
+.about-content {
+  @include m.desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .about-info {
+    margin-top: 3rem;
+    text-align: center;
+
+    @include m.desktop {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+}
