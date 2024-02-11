@@ -5,7 +5,8 @@ const tasksSchema: Schema = new Schema(
 		name: {
 			type: String,
 			require: true,
-			trim: true
+			trim: true,
+			unique: true
 		},
 		done: {
 			type: Boolean,
