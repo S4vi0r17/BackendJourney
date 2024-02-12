@@ -1,13 +1,18 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TaskList from './components/tasks/TaskList';
+import TaskForm from './components/tasks/TaskForm';
 
-function App() {
-
-
-  return (
-    <>
-      <h1 className="text-3xl">Hola, perras</h1>
-    </>
-  )
+const App = () => {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path='/'>
+                    <Route index element={<TaskList />}/>
+                    <Route path='new-task' element={<TaskForm />}/>
+                </Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
-export default App
+export default App;
