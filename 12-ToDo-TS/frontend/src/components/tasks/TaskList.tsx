@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
-interface Task {
-	createdAt: string
-	done: boolean
-	name: string
-	updatedAt: string
-	_id: string
-}
+import { Task } from './Task'
+import TaskItem from './TaskItem'
 
 const TaskList = () => {
 	const API: string = 'http://localhost:4000/tasks'
@@ -15,9 +9,22 @@ const TaskList = () => {
 	const [tasks, setTasks] = useState<Task[]>([])
 
 	const loadTasks = async () => {
-		const response = await axios.get(API)
+		const response = await axios.get<Task[]>(API)
 		// console.log(response);
-		setTasks(response.data)
+		const formatedTasks = response.data
+			.map((task: Task) => {
+				return {
+					...task,
+					createdAt: task.createdAt
+						? new Date(task.createdAt)
+						: new Date(),
+					updatedAt: task.updatedAt
+						? new Date(task.updatedAt)
+						: new Date(),
+				}
+			})
+			.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+		setTasks(formatedTasks)
 	}
 
 	useEffect(() => {
@@ -25,21 +32,9 @@ const TaskList = () => {
 	}, [])
 
 	return (
-		<div className='container mx-auto px-8'>
+		<div className='mx-auto mt-12 flex flex-wrap items-center justify-center gap-3'>
 			{tasks.map((task) => (
-				<div
-					className='bg-gray-50 text-black text-2xl flex justify-between'
-					key={task._id}
-				>
-					<h1>{task.name}</h1>
-					<p
-						className={`${
-							task.done ? 'text-emerald-400' : 'text-red-400'
-						}`}
-					>
-						{task.done ? 'Completed' : 'Pending'}
-					</p>
-				</div>
+				<TaskItem key={task._id} task={task} loadTasks={loadTasks} />
 			))}
 		</div>
 	)

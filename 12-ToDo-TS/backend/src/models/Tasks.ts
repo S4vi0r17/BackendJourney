@@ -10,7 +10,8 @@ const tasksSchema: Schema = new Schema(
 		},
 		done: {
 			type: Boolean,
-			require: true
+			require: true,
+			default: false
 		},
 	},
 	{
