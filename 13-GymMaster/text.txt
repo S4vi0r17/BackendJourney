@@ -1,0 +1,102 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "editor.wordWrap": "on",
+    "C_Cpp.default.compilerPath": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.activeIconPack": "nest",
+    "files.autoSave": "afterDelay",
+    "git.autofetch": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "editor.fontFamily": "Jetbrains Mono, Hack Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 17,
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "go": false,
+        "javascript": true,
+        "git-commit": true,
+        "astro": true,
+        "javascriptreact": false,
+        "typescript": false,
+        "typescriptreact": false
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    "workbench.productIconTheme": "fluent-icons",
+    "editor.linkedEditing": true,
+    "settingsSync.ignoredExtensions": [
+
+
+
+    ],
+    "settingsSync.ignoredSettings": [
+        
+
+        "terminal.external.windowsExec"
+    ],
+    "editor.stickyScroll.enabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.formatting.provider": "none",
+    "workbench.startupEditor": "none",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "terminal.external.windowsExec": "C:\\Users\\savior\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "php.validate.executablePath": "",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "explorer.compactFolders": false,
+    "workbench.colorTheme": "In Bed by 7pm",
+    // "editor.formatOnSave": true,
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "window.zoomLevel": 1,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.confirmSync": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "prettier.singleQuote": true,
+    "prettier.useTabs": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.test.ts, ${capture}.d.ts, ${capture}.min.js, ${capture}.css",
+        "*.js": "${capture}.js.map, ${capture}.test.js, ${capture}.d.ts, ${capture}.min.js, ${capture}.css",
+        "*.jsx": "${capture}.js, ${capture}.test.jsx, ${capture}.d.ts, ${capture}.min.js, ${capture}.css",
+        "*.tsx": "${capture}.ts, ${capture}.test.tsx, ${capture}.d.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, .eslintrc.cjs, .prettierrc.json, vite.config.js, .env, .gitignore, postcss.config.js, tailwind.config.js, vite.config.ts"
+    }
+}
