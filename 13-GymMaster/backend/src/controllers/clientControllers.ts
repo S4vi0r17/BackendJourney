@@ -1,14 +1,17 @@
 import { Request, Response } from 'express';
 
-const register = (req: Request, res: Response) => {
-    res.send('hola')
+const registration = (req: Request, res: Response) => {
+    res.json({
+        msg: 'registration'
+    })
 }
 
 const profile = (req: Request, res: Response) => {
-    res.send('profile')
+    res.json({
+        msg: 'profile'
+    })
 }
-
 export {
-    register,
+    registration,
     profile
 }
