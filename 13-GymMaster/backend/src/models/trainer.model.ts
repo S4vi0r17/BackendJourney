@@ -10,6 +10,7 @@ interface ITrainer extends Document {
     web: string
     token: string | null
     confirmed: boolean
+    comparePassword(password: string): Promise<boolean>
 }
 
 const trainerSchema = new Schema<ITrainer>({
@@ -58,6 +59,10 @@ trainerSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, salt)
     next()
 });
+
+trainerSchema.methods.comparePassword = async function(password: string): Promise<boolean> {
+    return await bcrypt.compare(password, this.password)
+}
 
 const Trainer = model('Trainer', trainerSchema)
 
