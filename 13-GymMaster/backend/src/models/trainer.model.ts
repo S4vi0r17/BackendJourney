@@ -1,7 +1,18 @@
-import { Schema, model } from 'mongoose'
+import { Document, Schema, model } from 'mongoose'
+import bcrypt from 'bcrypt'
 import generateId from '../helpers/id-generator.helper'
 
-const trainerSchema = new Schema({
+interface ITrainer extends Document {
+    name: string
+    password: string
+    email: string
+    phone: string
+    web: string
+    token: string | null
+    confirmed: boolean
+}
+
+const trainerSchema = new Schema<ITrainer>({
     name: {
         type: String,
         require: true,
@@ -35,6 +46,18 @@ const trainerSchema = new Schema({
         default: false
     }
 })
+
+// Hook pre-save para hashear el password
+trainerSchema.pre('save', async function(next) {
+    // Solo hashear el password si ha sido modificado (o es nuevo)
+    if (!this.isModified('password')) return next()
+
+    // Generar un salt
+    const salt = await bcrypt.genSalt(10)
+    // Crear el hash del password y asignarlo al campo password
+    this.password = await bcrypt.hash(this.password, salt)
+    next()
+});
 
 const Trainer = model('Trainer', trainerSchema)
 

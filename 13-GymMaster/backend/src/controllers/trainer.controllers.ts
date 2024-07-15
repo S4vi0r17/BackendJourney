@@ -44,9 +44,38 @@ const profile = (req: Request, res: Response) => {
     })
 }
 
-const confirm = (req: Request, res: Response) => {
+const confirm = async (req: Request, res: Response) => {
+    const { token } = req.params
+
+    const trainer = await TrainerModel.findOne({ token })
+
+    if (!trainer) {
+        const error = new Error('Invalid token')
+        return res.status(400).json({
+            msg: error.message
+        })
+    }
+
+    try {
+        trainer.confirmed = true
+        trainer.token = null
+        await trainer.save()
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(500).json({
+                msg: error.message
+            })
+        } else {
+            res.status(500).json({
+                msg: 'Caught an unexpected error'
+            })
+        }
+        
+    }
+
     res.json({
-        msg: 'confirm'
+        msg: 'confirm',
+        body: trainer
     })
 }
 

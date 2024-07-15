@@ -5,6 +5,6 @@ const router = Router()
 
 router.post('/', registration)
 router.get('/profile', profile)
-router.get('/confirm', confirm)
+router.get('/confirm/:token', confirm)
 
 export default router
