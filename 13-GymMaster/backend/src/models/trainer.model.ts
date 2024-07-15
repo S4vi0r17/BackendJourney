@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import generateId from '../helpers/id-generator.helper'
 
 const trainerSchema = new Schema({
     name: {
@@ -26,7 +27,8 @@ const trainerSchema = new Schema({
         default: null
     },
     token: {
-        type: String
+        type: String,
+        default: generateId()
     },
     confirmed: {
         type: Boolean,
