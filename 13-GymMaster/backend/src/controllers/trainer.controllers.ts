@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
-import { RegisterDto } from '../dto/register.dto';
+// import bcrypt from 'bcrypt';
 import TrainerModel from '../models/trainer.model';
+import { RegisterDto } from '../dto/register.dto';
+import { LoginDto } from '../dto/login.dto';
 
 const registration = async (req: Request, res: Response) => {
 
@@ -79,8 +81,47 @@ const confirm = async (req: Request, res: Response) => {
     })
 }
 
+const auth = async (req: Request, res: Response) => {
+    const { email, password }: LoginDto = req.body
+
+    const trainer = await TrainerModel.findOne({email})
+
+    if (!trainer) {
+        const error = new Error('Trainer not found')
+        return res.status(404).json({
+            msg: error.message
+        })
+    }
+
+    if (!trainer.confirmed) {
+        const error = new Error('Trainer not confirmed')
+        return res.status(401).json({
+            msg: error.message
+        })
+    }
+
+    // if (!bcrypt.compareSync(password, trainer.password)) {
+    //     const error = new Error('Invalid password')
+    //     return res.status(401).json({
+    //         msg: error.message
+    //     })
+    // }
+
+    if (!await trainer.comparePassword(password)) {
+        const error = new Error('Invalid password')
+        return res.status(401).json({
+            msg: error.message
+        })
+    }
+
+    res.json({
+        msg: 'auth'
+    })
+}
+
 export {
     registration,
     profile,
-    confirm
+    confirm,
+    auth
 }
