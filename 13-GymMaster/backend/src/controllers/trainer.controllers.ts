@@ -43,7 +43,15 @@ const profile = (req: Request, res: Response) => {
         msg: 'profile'
     })
 }
+
+const confirm = (req: Request, res: Response) => {
+    res.json({
+        msg: 'confirm'
+    })
+}
+
 export {
     registration,
-    profile
+    profile,
+    confirm
 }
