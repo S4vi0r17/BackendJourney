@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 
-const clientSchema = new Schema({
+const trainerSchema = new Schema({
     name: {
         type: String,
         require: true,
@@ -34,6 +34,6 @@ const clientSchema = new Schema({
     }
 })
 
-const Client = model('Client', clientSchema)
+const Trainer = model('Trainer', trainerSchema)
 
-export default Client
+export default Trainer
