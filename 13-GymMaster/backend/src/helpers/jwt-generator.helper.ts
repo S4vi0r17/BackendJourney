@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 
-const generateJwt = (trainer: TrainerInterface): string => {
+const generateJwt = (id: String): string => {
     return jwt.sign({
-        trainer
+        id
     }, process.env.JWT_SECRET as string, {
         expiresIn: '30d'
     })
