@@ -42,8 +42,12 @@ const registration = async (req: Request, res: Response) => {
 }
 
 const profile = (req: Request, res: Response) => {
+
+    const { trainer } = res.locals
+
     res.json({
-        msg: 'profile'
+        msg: 'profile',
+        body: trainer
     })
 }
 
