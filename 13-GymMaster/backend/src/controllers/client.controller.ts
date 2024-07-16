@@ -21,4 +21,34 @@ const getClients = async (req: Request, res: Response) => {
     }
 }
 
-export { addClient, getClients }
+const getClient = async (req: Request, res: Response) => {
+    const { id } = req.params
+    const client = await Client.findById(id)
+    console.log(client)
+
+    if (client?.trainer.toString() !== res.locals.trainer._id.toString()) {
+        return res.status(403).send({ message: 'Forbidden' })
+    }
+
+    if (!client) {
+        return res.status(404).send({ message: 'Client not found' })
+    }
+
+    res.status(200).json(client)
+}
+
+const updateClient = async (req: Request, res: Response) => {
+    res.json({ message: 'updateClient' })
+}
+
+const deleteClient = async (req: Request, res: Response) => {
+    res.json({ message: 'deleteClient' })
+}
+
+export {
+    addClient,
+    getClients,
+    getClient,
+    updateClient,
+    deleteClient
+}
