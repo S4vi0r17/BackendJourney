@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
-import Client from "../models/client.model"
+import Client, { ExerciseLevel } from "../models/client.model"
+import { UpdateClientDto } from "../dto/update-client.dto"
 
 const addClient = async (req: Request, res: Response) => {
     try {
@@ -24,25 +25,66 @@ const getClients = async (req: Request, res: Response) => {
 const getClient = async (req: Request, res: Response) => {
     const { id } = req.params
     const client = await Client.findById(id)
-    console.log(client)
-
-    if (client?.trainer.toString() !== res.locals.trainer._id.toString()) {
-        return res.status(403).send({ message: 'Forbidden' })
-    }
 
     if (!client) {
         return res.status(404).send({ message: 'Client not found' })
+    }
+
+    if (client?.trainer.toString() !== res.locals.trainer._id.toString()) {
+        return res.status(403).send({ message: 'Forbidden' })
     }
 
     res.status(200).json(client)
 }
 
 const updateClient = async (req: Request, res: Response) => {
-    res.json({ message: 'updateClient' })
+    const { id } = req.params
+    const updates: UpdateClientDto = req.body
+    const client = await Client.findById(id)
+
+    if (!client) {
+        return res.status(404).send({ message: 'Client not found' })
+    }
+
+    if (client?.trainer.toString() !== res.locals.trainer._id.toString()) {
+        return res.status(403).send({ message: 'Forbidden' })
+    }
+
+    client.name = updates.name ?? client.name;
+    client.email = updates.email ?? client.email;
+    client.phone = updates.phone ?? client.phone;
+    client.weight = updates.weight ?? client.weight;
+    client.height = updates.height ?? client.height;
+    client.exerciseLevel = (updates.exerciseLevel as ExerciseLevel) ?? client.exerciseLevel;
+    client.note = updates.note ?? client.note;
+    
+
+    await client.save()
+    res.status(200).json({
+        msm: 'Client updated'
+    })
 }
 
 const deleteClient = async (req: Request, res: Response) => {
-    res.json({ message: 'deleteClient' })
+    const { id } = req.params
+    const client = await Client.findById(id)
+
+    if (!client) {
+        return res.status(404).send({ message: 'Client not found' })
+    }
+
+    if (client?.trainer.toString() !== res.locals.trainer._id.toString()) {
+        return res.status(403).send({ message: 'Forbidden' })
+    }
+
+    try {
+        await client.deleteOne()
+        res.status(200).json({
+            message: 'Client deleted'
+        })
+    } catch (error) {
+        res.status(500).send(error)
+    }
 }
 
 export {

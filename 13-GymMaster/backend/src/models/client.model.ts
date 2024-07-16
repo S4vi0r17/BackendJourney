@@ -1,7 +1,7 @@
 import { Document, Schema, model } from 'mongoose'
 
 // Definir un enum para los niveles de ejercicio
-enum ExerciseLevel {
+export enum ExerciseLevel {
     Low = 'Low',
     Medium = 'Medium',
     High = 'High'
