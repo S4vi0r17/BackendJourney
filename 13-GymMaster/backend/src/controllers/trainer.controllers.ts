@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import TrainerModel from '../models/trainer.model';
 import { RegisterDto } from '../dto/register.dto';
 import { LoginDto } from '../dto/login.dto';
+import generateJwt from '../helpers/jwt-generator.helper';
 
 const registration = async (req: Request, res: Response) => {
 
@@ -115,7 +116,7 @@ const auth = async (req: Request, res: Response) => {
     }
 
     res.json({
-        msg: 'auth'
+        token: generateJwt(trainer.id)
     })
 }
 
