@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const SignIn = () => {
   return (
-    <div className="flex h-[600px]">
+    <div className="flex h-[650px]">
       <div className="w-2/5 bg-blue-600 text-white p-8 flex flex-col justify-center items-center rounded-l-3xl">
         <h2 className="text-3xl font-bold mb-4">New here?</h2>
         <p className="text-center mb-8">Join our fitness community by creating an account</p>
