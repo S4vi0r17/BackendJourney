@@ -24,12 +24,12 @@ const SignUp = () => {
     }
 
     try {
-      await axios.post('http://localhost:4000/api/trainers', {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/trainers`, {
         name,
         email,
         password
       })
-      setAlert({ message: 'Account created successfully', type: 'success' })
+      setAlert({ message: 'Account created successfully, please verify your email', type: 'success' })
     } catch (error) {
       console.log(error)
       setAlert({ message: (error as any).response.data.msg, type: 'error' })

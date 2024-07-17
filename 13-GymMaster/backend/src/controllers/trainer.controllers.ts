@@ -86,9 +86,8 @@ const confirm = async (req: Request, res: Response) => {
 
     }
 
-    res.json({
-        msg: 'confirm',
-        body: trainer
+    res.status(200).json({
+        msg: 'success'
     })
 }
 
