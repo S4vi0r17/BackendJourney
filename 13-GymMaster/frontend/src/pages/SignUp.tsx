@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import Alert from "../components/Alert";
 import { AlertInterface } from '../interfaces/alert.interface'
 
@@ -10,7 +11,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [alert, setAlert] = useState<AlertInterface>({ message: null, type: null })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if ([name, email, password, confirmPassword].includes('')) {
       setAlert({ message: 'Please fill in all fields', type: 'error' })
@@ -23,6 +24,16 @@ const SignUp = () => {
     }
 
     setAlert({ message: 'Account created successfully', type: 'success' })
+
+    try {
+      await axios.post('http://localhost:4000/api/trainers', {
+        name,
+        email,
+        password
+      })
+    } catch (error) {
+      setAlert({ message: 'An error occurred', type: 'error' })
+    }
 
     setInterval(() => {
       setAlert({ message: null, type: null })
