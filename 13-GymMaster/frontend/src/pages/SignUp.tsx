@@ -23,16 +23,16 @@ const SignUp = () => {
       return
     }
 
-    setAlert({ message: 'Account created successfully', type: 'success' })
-
     try {
       await axios.post('http://localhost:4000/api/trainers', {
         name,
         email,
         password
       })
+      setAlert({ message: 'Account created successfully', type: 'success' })
     } catch (error) {
-      setAlert({ message: 'An error occurred', type: 'error' })
+      console.log(error)
+      setAlert({ message: (error as any).response.data.msg, type: 'error' })
     }
 
     setInterval(() => {
