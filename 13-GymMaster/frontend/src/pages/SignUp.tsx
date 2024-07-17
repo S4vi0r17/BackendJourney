@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
+import axiosInstance from '../config/axios';
 import Alert from "../components/Alert";
 import { AlertInterface } from '../interfaces/alert.interface'
 
@@ -24,7 +25,7 @@ const SignUp = () => {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/trainers`, {
+      await axiosInstance.post('/trainers', {
         name,
         email,
         password

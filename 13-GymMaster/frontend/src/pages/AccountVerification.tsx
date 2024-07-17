@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import axiosInstance from '../config/axios'
+// import axios from 'axios'
 
 const AccountVerification = () => {
   const { id } = useParams()
@@ -9,8 +10,8 @@ const AccountVerification = () => {
   useEffect(() => {
     const verifyAccount = async () => {
       try {
-        const url = `${import.meta.env.VITE_BACKEND_URL}/trainers/confirm/${id}`
-        const { data } = await axios.get(url)
+        const url = `/trainers/confirm/${id}`
+        const { data } = await axiosInstance.get(url)
         setVerificationStatus(data.msg)
       } catch (error) {
         setVerificationStatus('error')
