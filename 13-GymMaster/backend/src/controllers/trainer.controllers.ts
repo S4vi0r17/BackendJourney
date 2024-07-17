@@ -5,6 +5,7 @@ import { RegisterDto } from '../dto/register.dto';
 import { LoginDto } from '../dto/login.dto';
 import generateJwt from '../helpers/jwt-generator.helper';
 import generateId from '../helpers/id-generator.helper';
+import emailRegister from '../helpers/email-register.helper';
 
 const registration = async (req: Request, res: Response) => {
 
@@ -25,6 +26,10 @@ const registration = async (req: Request, res: Response) => {
     try {
         const newTrainer = new TrainerModel(req.body)
         const trainerSaved = await newTrainer.save()
+
+        // send email
+        emailRegister(name, email, trainerSaved.token as string)
+
         res.json({
             msg: 'registration',
             body: trainerSaved
@@ -78,7 +83,7 @@ const confirm = async (req: Request, res: Response) => {
                 msg: 'Caught an unexpected error'
             })
         }
-        
+
     }
 
     res.json({
@@ -90,7 +95,7 @@ const confirm = async (req: Request, res: Response) => {
 const auth = async (req: Request, res: Response) => {
     const { email, password }: LoginDto = req.body
 
-    const trainer = await TrainerModel.findOne({email})
+    const trainer = await TrainerModel.findOne({ email })
 
     if (!trainer) {
         const error = new Error('Trainer not found')

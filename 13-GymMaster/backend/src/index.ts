@@ -4,6 +4,9 @@ import cors from 'cors'
 import trainerRoutes from './routes/trainer.route'
 import clientRoutes from './routes/client.route'
 import connectDB from './config/db'
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 connectDB()
 
