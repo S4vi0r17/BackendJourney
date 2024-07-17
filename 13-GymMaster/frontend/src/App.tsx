@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthLayout from './layout/AuthLayout';
 import SignIn from './pages/SignIn';
-import { SignUp } from './pages/SignUp';
+import SignUp from './pages/SignUp';
 import PasswordReset from './pages/PasswordReset';
 import AccountVerification from './pages/AccountVerification';
 
