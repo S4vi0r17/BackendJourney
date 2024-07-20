@@ -10,8 +10,8 @@ const router = express.Router();
 // 	});
 // });
 
-router.get('/', (req, res) => {
-    res.render('index', { title: 'E-commerce', message: 'Bienvenido a nuestro E-commerce' });
+router.get('/home', (req, res) => {
+    res.render('home', { title: 'E-commerce', message: 'Bienvenido a nuestro E-commerce' });
 });
 
 router.get('/about', (req, res) => {
