@@ -2,48 +2,48 @@ extends ./layout/index
 
 block content
     main.main-content.container
-    h2 Fill all the fields
-    form.form(action='process_form.php' method='post')
-        fieldset
-            legend Personal Information
-            .personal-info
-                label(for='name')
-                    | Full Name:
-                    input#name(type='text' name='name' required='')
-                label(for='email')
-                    | Email Address:
-                    input#email(type='email' name='email' required='')
-                label(for='phone')
-                    | Phone Number:
-                    input#phone(type='tel' name='phone')
-        fieldset
-            legend Reason for Contact
-            .reason-contact
-                label(for='reason')
-                    | Reason for Contact:
-                    input#reason-input(list='reason')
-                    datalist#reason
-                        option(value='inquiry') Product Inquiry
-                        option(value='support') Technical Support
-                        option(value='shipping') Shipping Information
-                label(for='message')
-                    | Message or Inquiry:
-                    textarea#message(name='message' required='')
-        fieldset.contact-preferences
-            legend Contact Preferences
-            label.container-radio(for='contact_email')
-                input#contact_email(type='radio' name='contact_preference' value='email' checked='')
-                span.checkmark
-                |             Email
-            label.container-radio(for='contact_phone')
-                input#contact_phone(type='radio' name='contact_preference' value='phone')
-                span.checkmark
-                |             Phone
-        fieldset
-            legend Terms and Conditions
-            .terms-conditions
-                label.terms(for='terms')
-                    input#terms(type='checkbox' name='terms' required='')
-                    |               I agree to the Terms and Conditions
-                    span.checkmark-checkbox
-                input.btn-form(type='submit' value='Submit Inquiry')
+        h2 Fill all the fields
+        form.form(action='process_form.php' method='post')
+            fieldset
+                legend Personal Information
+                .personal-info
+                    label(for='name')
+                        | Full Name:
+                        input#name(type='text' name='name' required='')
+                    label(for='email')
+                        | Email Address:
+                        input#email(type='email' name='email' required='')
+                    label(for='phone')
+                        | Phone Number:
+                        input#phone(type='tel' name='phone')
+            fieldset
+                legend Reason for Contact
+                .reason-contact
+                    label(for='reason')
+                        | Reason for Contact:
+                        input#reason-input(list='reason')
+                        datalist#reason
+                            option(value='inquiry') Product Inquiry
+                            option(value='support') Technical Support
+                            option(value='shipping') Shipping Information
+                    label(for='message')
+                        | Message or Inquiry:
+                        textarea#message(name='message' required='')
+            fieldset.contact-preferences
+                legend Contact Preferences
+                label.container-radio(for='contact_email')
+                    input#contact_email(type='radio' name='contact_preference' value='email' checked='')
+                    span.checkmark
+                    |             Email
+                label.container-radio(for='contact_phone')
+                    input#contact_phone(type='radio' name='contact_preference' value='phone')
+                    span.checkmark
+                    |             Phone
+            fieldset
+                legend Terms and Conditions
+                .terms-conditions
+                    label.terms(for='terms')
+                        input#terms(type='checkbox' name='terms' required='')
+                        |               I agree to the Terms and Conditions
+                        span.checkmark-checkbox
+                    input.btn-form(type='submit' value='Submit Inquiry')

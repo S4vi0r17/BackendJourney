@@ -469,7 +469,7 @@ img {
 }
 
 .hero {
-  background-image: url(../../assets/img/hero.webp);
+  background-image: url(/img/hero.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -545,7 +545,7 @@ img {
 }
 @media (min-width: 768px) {
   .about-us {
-    background-image: linear-gradient(to right, transparent 50%, #ba8449 50%), url(../../assets/img/product1.webp);
+    background-image: linear-gradient(to right, transparent 50%, #ba8449 50%), url(/img/product1.webp);
     background-size: 100%, 120rem;
     background-position: left center;
   }
