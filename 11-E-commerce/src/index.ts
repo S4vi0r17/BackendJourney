@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import router from './routes';
 import db from './config/db';
-import seedGuitars from './config/seed';
+import { seedData } from './config/seed';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,7 +11,7 @@ db.authenticate()
 	.then(() => console.log('Database connected...'))
 	.catch((err) => console.log('Error: ' + err));
 
-// seedGuitars();
+// seedData();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

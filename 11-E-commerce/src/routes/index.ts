@@ -1,5 +1,5 @@
 import express from 'express';
-import products from '../controllers/products.controller';
+import { blogs, products } from '../controllers/products.controller';
 
 const router = express.Router();
 
@@ -21,9 +21,7 @@ router.get('/about', (req, res) => {
 
 router.get('/products', products);
 
-router.get('/blog', (req, res) => {
-    res.render('blog', { title: 'Blog' });
-});
+router.get('/blog', blogs);
 
 router.get('/contact', (req, res) => {
     res.render('contact', { title: 'Contact' });
