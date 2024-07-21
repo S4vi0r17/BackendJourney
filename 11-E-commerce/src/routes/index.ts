@@ -1,4 +1,5 @@
 import express from 'express';
+import products from '../controllers/products.controller';
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ const router = express.Router();
 // 	});
 // });
 
-router.get('/home', (req, res) => {
+router.get('/', (req, res) => {
     res.render('home', { title: 'E-commerce', message: 'Bienvenido a nuestro E-commerce' });
 });
 
@@ -18,9 +19,7 @@ router.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
 });
 
-router.get('/products', (req, res) => {
-    res.render('products', { title: 'Shop' });
-});
+router.get('/products', products);
 
 router.get('/blog', (req, res) => {
     res.render('blog', { title: 'Blog' });

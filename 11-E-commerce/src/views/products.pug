@@ -4,102 +4,17 @@ block content
     main.main-content.container
         h2 Explore Our Products
         .list-products-shop
-            article.product-shop
-                img.product-img(src='/img/product10.png' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product4.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product5.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product6.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product7.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product8.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product3.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
-            article.product-shop
-                img.product-img(src='/img/product9.webp' alt='product 0')
-                .product-shop-text
-                    h3 Product 0
-                    p
-                        | Donec dapibus risus non efficitur facilisis. Etiam ac vulputate
-                        | purus. Sed volutpat ac ligula ut lobortis. Aliquam erat volutpat.
-                        | Morbi iaculis tempor eros, ac sagittis sem aliquet eu.
-                    p.product-price
-                        strong Price:
-                        |  $100
-                    a.btn.add-to-cart(href='#') Add to Cart
+            each guitar in guitars
+                article.product-shop
+                    img.product-img(src=`${guitar.image}` alt=`${guitar.name}`)
+                    .product-shop-text
+                        h3= guitar.name
+                        p= guitar.description
+                        p.product-price
+                            strong Price:
+                            |  $#{guitar.price}
+                        a.btn.add-to-cart(href='#') Add to Cart
+
     .lds-ring
         div
         div
